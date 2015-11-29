@@ -1,0 +1,26 @@
+plugins {
+  id 'net.researchgate.release' version '2.0.2'
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply from: 'https://raw.github.com/akhikhl/gretty/master/pluginScripts/gretty.plugin'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.8'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    providedCompile "javax.servlet.jsp:jsp-api:2.2"
+    providedCompile "javax.servlet:javax.servlet-api:3.0.1"
+    providedCompile "javax.el:el-api:2.2"
+    compile "javax.servlet:jstl:1.2"
+}
